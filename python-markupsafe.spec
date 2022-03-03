@@ -35,10 +35,8 @@ BuildRequires:	python3-pytest
 %endif
 %endif
 %if %{with doc}
-BuildRequires:	python3-pallets-sphinx-themes >= 1.1.0
-# docs/requirements.txt says 1.8.0, but 1.7.6 also works
-#BuildRequires:	sphinx-pdg-3 >= 1.8.0
-BuildRequires:	sphinx-pdg-3 >= 1.7.0
+BuildRequires:	python-pallets-sphinx-themes >= 1.1.0
+BuildRequires:	sphinx-pdg-2 >= 1.8.0
 %endif
 Requires:	python-modules >= 1:2.7
 Provides:	python-MarkupSafe = %{version}-%{release}
@@ -100,7 +98,7 @@ PYTHONPATH=$(pwd)/$(echo build-3/lib.*) \
 
 %if %{with doc}
 %{__make} -C docs html \
-	SPHINXBUILD=sphinx-build-3
+	SPHINXBUILD=sphinx-build-2
 %endif
 
 %install
